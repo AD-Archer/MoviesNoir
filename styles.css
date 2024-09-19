@@ -1,75 +1,121 @@
-/* Global styles */
-body {
-  overflow-x: hidden;
-  overflow-y: auto;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  background: #e4d9b2;
+/* Declaring variables for colors */
+:root {
+  --main-bg-color: #87511e; /* Soft, warm tan for the background */
+  --off-main-bg-color: #7c4514; /* Light beige for contrast */
+  --nav-bg-color: #7D4B26; /* Sienna Brown for the navigation bar, slightly darker */
+  --text-color: #ebebeb; /* Dark Mocha Brown for readable text */
+  --nav-text-color: #F5E1C7; /* Lighter Beige for navigation links */
+  --nav-text-hover-color: #D5B185; /* Desert Sand for hover effect */
+  --button-bg-color: #A67B5B; /* Café au Lait for button background */
+  --button-hover-color: #D5B185; /* Desert Sand for lighter hover effect */
+  --footer-bg-color: #6B4226; /* Darker Chestnut for the footer */
 }
 
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--off-main-bg-color);
+  color: var(--text-color); /* Set text color globally */
+  overflow-x: hidden;
+}
+
+/* Header styles */
 header {
-  background: #7b3f00;
-  color: #fff;
-  padding: 10px 0;
+  background-color: var(--main-bg-color);
+  color: var(--text-color);
+  padding: 20px 0;
   text-align: center;
 }
 
-header h1 {
+/* Logo Section */
+#logo-section {
+  margin-bottom: 10px;
+}
+
+.logo {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Header Text Section */
+#header-text h1 {
   margin: 0;
+  font-size: 2.8em;
 }
 
+#header-text p {
+  margin: 10px 0 20px;
+  font-size: 1.2em;
+}
+
+/* Navigation styles */
 nav ul {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
+  margin: 0;
+  background-color: var(--off-main-bg-color);
 }
 
-nav ul li {
-  display: inline;
-  margin: 0 10px;
+.nav-list li {
+  display: inline-block;
+  margin: 10px 50px;
 }
 
-nav ul li a {
-  color: #fff;
+.nav-list li a {
+  color: var(--nav-text-color);
   text-decoration: none;
+  font-size: 1.1em;
   transition: color 0.3s;
 }
 
-nav ul li a:hover {
-  color: #ffa500;
+.nav-list li a:hover {
+  color: var(--nav-text-hover-color);
 }
 
-.main-image {
-  display: block;
-  max-width: 2000px; 
-  max-height: 1000px;
-  width: auto;
+/* Banner styles */
+.banner-container {
+  width: 100%;
+  background-color: var(--main-bg-color);
+  padding: 15px 0;
+}
+
+.banner-image {
+  width: 100%;
+  max-width: 100%;
   height: auto;
-  border: 1px solid #ccc;
+  object-fit: cover;
   border-radius: 5px;
 }
 
+/* Button styles */
 .link-button {
   display: block;
-  padding: 10px 20px;
-  background-color: #7b3f00;
-  color: #fff;
+  padding: 12px 24px;
+  background-color: var(--button-bg-color);
+  color: var(--text-color);
   border: none;
   border-radius: 5px;
   text-align: center;
   font-size: 16px;
   cursor: pointer;
+  margin-top: 20px;
   text-decoration: none;
 }
 
 .link-button:hover {
-  background-color: #ffa500;
+  background-color: var(--button-hover-color);
 }
 
+/* Footer styles */
 footer {
-  background: #7b3f00;
-  color: #fff;
+  background-color: var(--footer-bg-color);
+  color: var(--text-color);
   text-align: center;
   padding: 10px;
   position: fixed;
@@ -79,8 +125,46 @@ footer {
   width: 100%;
 }
 
+/* Extra space for content */
 .extra-space {
-  height: 200px; 
+  height: 200px;
 }
 
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  #header-text h1 {
+    font-size: 2em;
+  }
 
+  #header-text p {
+    font-size: 1em;
+  }
+
+  .logo {
+    max-width: 180px;
+  }
+
+  .banner-image {
+    height: auto;
+  }
+
+  .link-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  #header-text h1 {
+    font-size: 1.8em;
+  }
+
+  .logo {
+    max-width: 150px;
+  }
+
+  .link-button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}
