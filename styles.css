@@ -2,15 +2,14 @@
 :root {
   --main-bg-color: #87511e; /* Soft, warm tan for the background */
   --off-main-bg-color: #7c4514; /* Light beige for contrast */
-  --nav-bg-color: #7D4B26; /* Sienna Brown for the navigation bar, slightly darker */
-  --text-color: #ebebeb; /* Dark Mocha Brown for readable text */
-  --nav-text-color: #F5E1C7; /* Lighter Beige for navigation links */
-  --nav-text-hover-color: #D5B185; /* Desert Sand for hover effect */
-  --button-bg-color: #A67B5B; /* Café au Lait for button background */
-  --button-hover-color: #D5B185; /* Desert Sand for lighter hover effect */
-  --footer-bg-color: #6B4226; /* Darker Chestnut for the footer */
+  --nav-bg-color: #7D4B26; /* Sienna Brown for the navigation bar */
+  --text-color: #ebebeb; /* Light text color for readability */
+  --nav-text-color: #F5E1C7; /* Navigation links color */
+  --nav-text-hover-color: #D5B185; /* Hover color for navigation links */
+  --button-bg-color: #A67B5B; /* Button background color */
+  --button-hover-color: #D5B185; /* Button hover color */
+  --footer-bg-color: #6B4226; /* Footer background color */
 }
-
 
 /* Global styles */
 body {
@@ -18,8 +17,9 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--off-main-bg-color);
-  color: var(--text-color); /* Set text color globally */
-  overflow-x: hidden;
+  color: var(--text-color);
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
 /* Header styles */
@@ -28,19 +28,7 @@ header {
   color: var(--text-color);
   padding: 20px 0;
   text-align: center;
-}
-
-/* Logo Section */
-#logo-section {
-  margin-bottom: 10px;
-}
-
-.logo {
-  width: 100%;
-  max-width: 250px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  box-sizing: border-box; /* Include padding in the total width */
 }
 
 /* Header Text Section */
@@ -54,43 +42,66 @@ header {
   font-size: 1.2em;
 }
 
-/* Navigation styles */
-nav ul {
-  list-style-type: none;
+/* Navigation Styles */
+nav {
+  background-color: var(--nav-bg-color);
+  padding: 10px 0;
+  margin: 0; /* Remove margin to prevent overflow */
+  box-sizing: border-box; /* Include padding in the total width */
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center; /* Center nav items */
+  align-items: center;
+  list-style: none;
   padding: 0;
   margin: 0;
-  background-color: var(--off-main-bg-color);
 }
 
 .nav-list li {
-  display: inline-block;
-  margin: 10px 50px;
+  margin: 0 10px; /* Adjust spacing between buttons */
 }
 
 .nav-list li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px; /* Increased width for longer text */
+  height: 50px; /* Increased height for better fit */
+  border-radius: 12px; /* Rounded corners */
+  background-color: var(--button-bg-color);
   color: var(--nav-text-color);
   text-decoration: none;
-  font-size: 1.1em;
-  transition: color 0.3s;
+  font-size: 0.85em; /* Adjust font size to fit text */
+  line-height: 1.2; /* Reduce line height for better fit */
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+  box-sizing: border-box; /* Ensure padding does not affect width */
 }
 
+/* Hover effect for square-ish buttons */
 .nav-list li a:hover {
-  color: var(--nav-text-hover-color);
+  background-color: var(--nav-text-hover-color);
+  color: var(--text-color);
 }
 
 /* Banner styles */
 .banner-container {
   width: 100%;
   background-color: var(--main-bg-color);
-  padding: 15px 0;
+  padding: 0; /* Remove padding to make it touch the edges */
+  margin: 0; /* Remove margin to align with edges */
+  overflow: hidden; /* Ensure content does not overflow */
+  box-sizing: border-box; /* Include padding in the total width */
 }
 
 .banner-image {
   width: 100%;
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
+  height: 60vh; /* Adjust height for better fit on desktops */
+  object-fit: cover; /* Ensure the image covers the container */
   border-radius: 5px;
+  display: block; /* Ensure no extra space below the image */
 }
 
 /* Button styles */
@@ -106,6 +117,7 @@ nav ul {
   cursor: pointer;
   margin-top: 20px;
   text-decoration: none;
+  box-sizing: border-box; /* Include padding in the total width */
 }
 
 .link-button:hover {
@@ -123,6 +135,7 @@ footer {
   left: 0;
   right: 0;
   width: 100%;
+  box-sizing: border-box; /* Include padding in the total width */
 }
 
 /* Extra space for content */
@@ -141,16 +154,32 @@ footer {
   }
 
   .logo {
-    max-width: 180px;
+    max-width: 120px;
   }
 
-  .banner-image {
-    height: auto;
+  .nav-list li {
+    margin: 0 8px; /* Adjust spacing for smaller screens */
+  }
+
+  .nav-list li a {
+    width: 100px; /* Smaller width for mobile screens */
+    height: 40px; /* Smaller height for mobile screens */
+    font-size: 0.8em; /* Adjust font size for mobile screens */
   }
 
   .link-button {
     padding: 10px 20px;
     font-size: 14px;
+  }
+
+  .banner-container {
+    padding: 0; /* Ensure no padding on mobile */
+  }
+
+  .banner-image {
+    width: 100vw; /* Full viewport width */
+    height: 50vh; /* Adjust height to a fraction of viewport height */
+    object-fit: cover; /* Ensure the image covers the area */
   }
 }
 
@@ -160,11 +189,21 @@ footer {
   }
 
   .logo {
-    max-width: 150px;
+    max-width: 100px;
+  }
+
+  .nav-list li a {
+    width: 90px; /* Further reduced width for very small screens */
+    height: 35px; /* Further reduced height for very small screens */
+    font-size: 0.75em; /* Further reduced font size for very small screens */
   }
 
   .link-button {
     font-size: 12px;
     padding: 8px 16px;
+  }
+
+  .banner-image {
+    height: 40vh; /* Further reduced height for very small screens */
   }
 }
