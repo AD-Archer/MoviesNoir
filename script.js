@@ -1,6 +1,6 @@
 // Add click event listener to the button
 document.querySelector('.link-button').addEventListener('click', function() {
-  window.location.href = 'https://www.google.com'; // Replace 'https://www.google.com' with the actual URL
+  window.location.href = 'pages/generator/generator.html'; 
 });
 
 // Handle footer visibility on scroll

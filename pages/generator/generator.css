@@ -1,0 +1,157 @@
+/* Declaring variables for colors */
+:root {
+    --main-bg-color: linear-gradient(to right, #87511e, #7c4514);
+    --off-main-bg-color: linear-gradient(135deg, #7c4514, #6B4226);
+    --nav-bg-color: linear-gradient(135deg, #7D4B26, #6B4226);
+    --text-color: #ebebeb;
+    --nav-text-color: #F5E1C7;
+    --nav-text-hover-color: #D5B185;
+    --button-bg-color: linear-gradient(135deg, #A67B5B, #8C5E3C);
+    --button-hover-color: linear-gradient(135deg, #D5B185, #A67B5B);
+    --footer-bg-color: linear-gradient(135deg, #6B4226, #4A2C1F);
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--off-main-bg-color);
+    color: var(--text-color);
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+/* Header styles */
+header {
+    background: var(--main-bg-color);
+    color: var(--text-color);
+    padding: 20px;
+    text-align: center;
+}
+
+#header-text h1 {
+    margin: 0;
+    font-size: 2.4em;
+}
+
+#header-text p {
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+/* Navigation bar styles */
+nav {
+    background: var(--nav-bg-color);
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list li {
+    margin: 0 10px;
+}
+
+.nav-list li a {
+    display: block;
+    width: 130px;
+    height: 50px;
+    border-radius: 12px;
+    background: var(--button-bg-color);
+    color: var(--nav-text-color);
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-list li a:hover {
+    background: var(--nav-text-hover-color);
+    color: var(--text-color);
+}
+
+/* Banner styles */
+.banner-container {
+    width: 100%;
+    background: var(--main-bg-color);
+    padding: 0;
+    text-align: center;
+    height: 80vh; /* Adjust height to take up significant viewport space */
+    box-sizing: border-box;
+}
+
+.banner-container iframe {
+    width: 100%;
+    height: 100%; /* Ensure iframe takes up the full height of its container */
+    border: none; /* Remove default border */
+}
+
+/* Info paragraph styling */
+.info-paragraph {
+    background: #8a5f2b;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 1em;
+    margin: 20px auto;
+    max-width: 90%;
+    line-height: 1.5;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Button styles */
+.link-button {
+    display: block;
+    padding: 12px 24px;
+    background: var(--button-bg-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.link-button:hover {
+    background: var(--button-hover-color);
+}
+
+/* Footer styles */
+footer {
+    background: var(--footer-bg-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Main content styles */
+main {
+    padding: 20px;
+    margin-bottom: 60px; /* Make space for the footer */
+    border: 2px solid var(--button-bg-color);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .banner-container {
+        height: 70vh; /* Adjust height for tablets and small desktops */
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-container {
+        height: 60vh; /* Further reduced height for mobile devices */
+    }
+}
