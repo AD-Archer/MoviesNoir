@@ -1,14 +1,21 @@
 /* Declaring variables for colors */
 :root {
-  --main-bg-color: #87511e; /* Soft, warm tan for the background */
-  --off-main-bg-color: #7c4514; /* Light beige for contrast */
-  --nav-bg-color: #7D4B26; /* Sienna Brown for the navigation bar */
+  /* Background gradients */
+  --main-bg-color: linear-gradient(to right, #87511e, #7c4514);
+  --off-main-bg-color: linear-gradient(135deg, #7c4514, #6B4226); /* Gradient from light beige to deeper brown */
+  
+  /* Navigation bar gradient */
+  --nav-bg-color: linear-gradient(135deg, #7D4B26, #6B4226); /* Gradient from Sienna brown to deeper brown */
+
+  /* Text and button colors */
   --text-color: #ebebeb; /* Light text color for readability */
   --nav-text-color: #F5E1C7; /* Navigation links color */
   --nav-text-hover-color: #D5B185; /* Hover color for navigation links */
-  --button-bg-color: #A67B5B; /* Button background color */
-  --button-hover-color: #D5B185; /* Button hover color */
-  --footer-bg-color: #6B4226; /* Footer background color */
+  --button-bg-color: linear-gradient(135deg, #A67B5B, #8C5E3C); /* Gradient from warm tan to darker tan */
+  --button-hover-color: linear-gradient(135deg, #D5B185, #A67B5B); /* Gradient from light tan to warm tan */
+  
+  /* Footer gradient */
+  --footer-bg-color: linear-gradient(135deg, #6B4226, #4A2C1F); /* Gradient from deep brown to darker brown */
 }
 
 /* Global styles */
@@ -16,7 +23,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: var(--off-main-bg-color);
+  background: var(--off-main-bg-color);
   color: var(--text-color);
   overflow-x: hidden; /* Prevent horizontal scrolling */
   box-sizing: border-box; /* Include padding and border in element's total width and height */
@@ -24,9 +31,9 @@ body {
 
 /* Header styles */
 header {
-  background-color: var(--main-bg-color);
+  background: var(--main-bg-color);
   color: var(--text-color);
-  padding: 20px 0;
+  padding: 20px 10px;
   text-align: center;
   box-sizing: border-box; /* Include padding in the total width */
 }
@@ -34,25 +41,57 @@ header {
 /* Header Text Section */
 #header-text h1 {
   margin: 0;
-  font-size: 2.8em;
+  font-size: 2.4em; /* Adjusted size for desktops */
 }
 
 #header-text p {
   margin: 10px 0 20px;
-  font-size: 1.2em;
+  font-size: 1em; /* Adjusted size for desktops */
 }
 
-/* Navigation Styles */
-nav {
-  background-color: var(--nav-bg-color);
+/* Hide the navigation menu by default */
+#nav-menu {
+  display: none;
+  background: var(--nav-bg-color);
   padding: 10px 0;
-  margin: 0; /* Remove margin to prevent overflow */
-  box-sizing: border-box; /* Include padding in the total width */
+  margin: 0;
+  box-sizing: border-box;
+  position: absolute; /* Adjust position if needed */
+  width: 100%; /* Ensure it spans the full width */
+  top: 50px; /* Adjust top position if needed */
+}
+
+/* Style for the toggle button */
+.toggle-button {
+  background: var(--button-bg-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+/* Show the navigation menu when it's active */
+.nav-active {
+  display: block;
+}
+
+/* Center the navigation bar items */
+nav {
+  background: var(--nav-bg-color);
+  padding: 10px 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
 }
 
 .nav-list {
   display: flex;
-  justify-content: center; /* Center nav items */
+  flex-direction: row; /* Default side-by-side layout */
+  justify-content: center;
   align-items: center;
   list-style: none;
   padding: 0;
@@ -60,55 +99,106 @@ nav {
 }
 
 .nav-list li {
-  margin: 0 10px; /* Adjust spacing between buttons */
+  margin: 0 10px;
 }
 
 .nav-list li a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 130px; /* Increased width for longer text */
-  height: 50px; /* Increased height for better fit */
-  border-radius: 12px; /* Rounded corners */
-  background-color: var(--button-bg-color);
+  width: 130px; /* Adjust as needed */
+  height: 50px; /* Adjust as needed */
+  border-radius: 12px;
+  background: var(--button-bg-color);
   color: var(--nav-text-color);
   text-decoration: none;
-  font-size: 0.85em; /* Adjust font size to fit text */
-  line-height: 1.2; /* Reduce line height for better fit */
+  font-size: 0.85em; /* Adjust font size */
+  line-height: 1.2;
   text-align: center;
-  transition: background-color 0.3s, color 0.3s;
-  box-sizing: border-box; /* Ensure padding does not affect width */
+  transition: background 0.3s, color 0.3s;
+  box-sizing: border-box;
 }
 
-/* Hover effect for square-ish buttons */
+/* Mobile layout adjustments */
+@media (max-width: 768px) {
+  .nav-list {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-list li {
+    margin: 5px 0; /* Adjust spacing for vertical layout */
+  }
+
+  .nav-list li a {
+    width: 100px; /* Smaller width for mobile */
+    height: 40px; /* Smaller height for mobile */
+    font-size: 0.75em; /* Smaller font size for mobile */
+  }
+
+  /* Ensure the Random Movie Generator is at the bottom */
+  .nav-list .movie-generator {
+    margin-top: auto; /* Push it to the bottom */
+  }
+}
+
+/* Hover effect for navigation links */
 .nav-list li a:hover {
-  background-color: var(--nav-text-hover-color);
+  background: var(--nav-text-hover-color);
   color: var(--text-color);
 }
 
 /* Banner styles */
 .banner-container {
   width: 100%;
-  background-color: var(--main-bg-color);
-  padding: 0; /* Remove padding to make it touch the edges */
-  margin: 0; /* Remove margin to align with edges */
-  overflow: hidden; /* Ensure content does not overflow */
-  box-sizing: border-box; /* Include padding in the total width */
+  background: var(--main-bg-color);
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .banner-image {
   width: 100%;
-  height: 60vh; /* Adjust height for better fit on desktops */
+  height: auto; /* Adjust height to maintain aspect ratio */
   object-fit: cover; /* Ensure the image covers the container */
   border-radius: 5px;
-  display: block; /* Ensure no extra space below the image */
+  display: block;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .banner-image {
+    height: 50vh; /* Adjust height for tablets and small desktops */
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-image {
+    height: 40vh; /* Further reduced height for mobile devices */
+  }
+}
+
+/* Info paragraph styling */
+.info-paragraph {
+  background: #8a5f2b; /* Background color for the bubble */
+  border-radius: 15px; /* Rounded corners for a bubble effect */
+  padding: 15px; /* Space inside the bubble */
+  font-size: 1em; /* Adjust font size for readability */
+  margin: 20px auto; /* Center the bubble horizontally and add vertical space */
+  max-width: 90%; /* Allow flexibility in width */
+  line-height: 1.5; /* Improve readability */
+  text-align: center; /* Center-align the text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
 /* Button styles */
 .link-button {
   display: block;
   padding: 12px 24px;
-  background-color: var(--button-bg-color);
+  background: var(--button-bg-color);
   color: var(--text-color);
   border: none;
   border-radius: 5px;
@@ -121,12 +211,12 @@ nav {
 }
 
 .link-button:hover {
-  background-color: var(--button-hover-color);
+  background: var(--button-hover-color);
 }
 
 /* Footer styles */
 footer {
-  background-color: var(--footer-bg-color);
+  background: var(--footer-bg-color);
   color: var(--text-color);
   text-align: center;
   padding: 10px;
@@ -136,74 +226,14 @@ footer {
   right: 0;
   width: 100%;
   box-sizing: border-box; /* Include padding in the total width */
+  transition: display 0.3s ease; /* Smooth transition for display change */
+  z-index: 1000; /* Ensure it stays on top */
 }
 
-/* Extra space for content */
-.extra-space {
-  height: 200px;
-}
-
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-  #header-text h1 {
-    font-size: 2em;
-  }
-
-  #header-text p {
-    font-size: 1em;
-  }
-
-  .logo {
-    max-width: 120px;
-  }
-
-  .nav-list li {
-    margin: 0 8px; /* Adjust spacing for smaller screens */
-  }
-
-  .nav-list li a {
-    width: 100px; /* Smaller width for mobile screens */
-    height: 40px; /* Smaller height for mobile screens */
-    font-size: 0.8em; /* Adjust font size for mobile screens */
-  }
-
-  .link-button {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-
-  .banner-container {
-    padding: 0; /* Ensure no padding on mobile */
-  }
-
-  .banner-image {
-    width: 100vw; /* Full viewport width */
-    height: 50vh; /* Adjust height to a fraction of viewport height */
-    object-fit: cover; /* Ensure the image covers the area */
-  }
-}
-
-@media (max-width: 480px) {
-  #header-text h1 {
-    font-size: 1.8em;
-  }
-
-  .logo {
-    max-width: 100px;
-  }
-
-  .nav-list li a {
-    width: 90px; /* Further reduced width for very small screens */
-    height: 35px; /* Further reduced height for very small screens */
-    font-size: 0.75em; /* Further reduced font size for very small screens */
-  }
-
-  .link-button {
-    font-size: 12px;
-    padding: 8px 16px;
-  }
-
-  .banner-image {
-    height: 40vh; /* Further reduced height for very small screens */
-  }
+/* Ensure the main content fits within the viewport */
+main {
+  padding: 20px;
+  margin-bottom: 60px; /* Make space for the footer */
+  border: 2px solid var(--button-bg-color); /* Add border with color */
+  box-sizing: border-box; /* Include border in the total width */
 }

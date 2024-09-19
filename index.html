@@ -7,6 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>MoviesNoir</title>
   <link rel="stylesheet" href="styles.css">
+
+<!-- Icon -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
 </head>
 
 <body>
@@ -21,14 +31,19 @@
     </section>
     
     <!-- Navigation Menu -->
-    <nav>
-      <ul class="nav-list">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#generator">Random Movie Generator</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+   <!-- Button to toggle navigation menu -->
+<button id="toggle-nav" class="toggle-button">Menu</button>
+
+<!-- Navigation Menu -->
+<nav id="nav-menu">
+  <ul class="nav-list">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#generator">Random Movie Generator</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
   </header>
 
   <!-- Banner section -->
@@ -36,22 +51,27 @@
     <img src="Images/Website-Material/MoviesNoir Banner.png" class="banner-image" alt="Movies Noir Banner">
   </div>
 
-  <!-- Button for random movie generator -->
-  <center>
-    <button class="link-button">Click here to access the random movie generator</button>
-  </center>
-
+  
   <!-- Main content placeholder -->
   <main>
-    <div class="extra-space"></div>
+    <div class="about-us">
+      <p class="info-paragraph">Welcome to Moviesnoir, your premier place for entertainment when you don't know what to watch. With the click of a button you can get a recommendation and find something to catch instantly curing both boredom and the lost of culture. We specialize in helping both members inside and outside of the black community find black media. Our team is committed to helping you enjoy yourself and discover culture. </p>
+      <center>
+          <!-- Button for random movie generator -->
+        <button class="link-button">Click here to access the random movie generator</button>
+      </center>
+    </div>
   </main>
+
+
+  
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2024 Movies Noir. All rights reserved.</p>
   </footer>
 
-  <script defer src="script.js"></script> <!-- Link to JavaScript -->
+  <script src="script.js"></script> <!-- Link to js-->
 </body>
 
 </html>
