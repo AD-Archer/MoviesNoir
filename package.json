@@ -36,7 +36,7 @@
   "description": "Movies Noir - A platform celebrating Black culture through film and television",
   "main": "script.js",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "AD-Archer",
+  "license": "MIT",
   "homepage": "https://ad-archer.github.io/MoviesNoir"
 }
