@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://ad-archer.github.io/MoviesNoir",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -37,6 +38,5 @@
   "main": "script.js",
   "keywords": [],
   "author": "AD-Archer",
-  "license": "MIT",
-  "homepage": "https://ad-archer.github.io/MoviesNoir"
+  "license": "MIT"
 }
