@@ -13,7 +13,7 @@ const Home = () => {
 
       <div className="banner-container">
         <img 
-          src="/MoviesNoir/Images/Website-Material/MoviesNoir-Banner.png" 
+          src="Images/Website-Material/MoviesNoir-Banner.png" 
           className="banner-image" 
           alt="Movies Noir Banner"
           loading="eager"
