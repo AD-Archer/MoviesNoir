@@ -14,5 +14,6 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  base: '/MoviesNoir/',
+  // Remove the base config if you're deploying to Vercel
+  // base: '/MoviesNoir/',
 })
