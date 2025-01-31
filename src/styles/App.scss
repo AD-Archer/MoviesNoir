@@ -19,6 +19,12 @@ body {
   color: var(--text-color);
 }
 
+// Add global heading styles
+h1, h2, h3, h4, h5, h6 {
+  color: var(--nav-text-color);
+  font-weight: bold;
+}
+
 .app-wrapper {
   min-height: 100vh;
   display: flex;
@@ -34,6 +40,13 @@ body {
 // Custom components styles
 .custom-navbar {
   background: var(--nav-bg-color);
+  .nav-link {
+    color: var(--nav-text-color) !important;
+    
+    &:hover {
+      color: var(--nav-text-hover-color) !important;
+    }
+  }
 }
 
 .custom-button {
@@ -58,6 +71,17 @@ body {
   max-width: 90%;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: var(--text-color);
+
+  h2 {
+    color: var(--nav-text-color);
+    font-weight: bold;
+  }
+
+  p {
+    color: var(--text-color);
+    line-height: 1.6;
+  }
 }
 
 .generator-iframe {
@@ -92,15 +116,67 @@ body {
 
 // About page styles
 .about-container {
-  .team-section {
-    margin-top: 2rem;
+  padding-bottom: 4rem;
+
+  header h1 {
+    color: var(--nav-text-color);
+    margin-bottom: 1rem;
   }
 
-  .team-members {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    padding: 1rem;
+  .mission-statement {
+    background: #8a5f2b;
+    color: var(--text-color);
+    
+    h2 {
+      color: var(--nav-text-color);
+      font-weight: bold;
+    }
+
+    p {
+      color: var(--text-color);
+    }
+  }
+
+  .team-member-card {
+    height: 100%;
+    transition: transform 0.3s ease;
+    padding: 20px;
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .member-image {
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: center;
+      
+      img {
+        object-fit: cover;
+        border: 3px solid var(--text-color);
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+      }
+    }
+
+    h3 {
+      color: var(--text-color);
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .role {
+      font-size: 1.1rem;
+      color: #F5E1C7;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    p {
+      color: var(--text-color);
+      line-height: 1.6;
+    }
   }
 }
 
@@ -118,7 +194,7 @@ body {
   backdrop-filter: blur(10px);
 
   label {
-    color: var(--text-color);
+    color: var(--nav-text-color);
   }
 
   input, textarea {
@@ -196,4 +272,48 @@ body {
     border-radius: 10px;
     margin: 0.5rem auto;
   }
+}
+
+// Update existing styles
+.about-container {
+  padding-bottom: 4rem;
+
+  header h1 {
+    color: var(--nav-text-color);
+    margin-bottom: 1rem;
+  }
+
+  // Keep info-bubble text white for contrast
+  .info-bubble {
+    h2 {
+      color: var(--nav-text-color);
+    }
+    
+    &.mission-statement h2 {
+      color: var(--text-color);
+    }
+  }
+}
+
+// Update contact page styles
+.contact-container {
+  header {
+    h1 {
+      color: var(--nav-text-color);
+    }
+    p {
+      color: var(--nav-text-color);
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// Update form labels
+.form-label {
+  color: var(--nav-text-color);
+}
+
+// Update error messages to be more visible
+.text-danger {
+  color: #ff8f8f !important;
 } 
