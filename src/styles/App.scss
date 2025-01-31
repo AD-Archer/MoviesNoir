@@ -181,45 +181,222 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // Contact page styles
+.contact-container {
+  header {
+    h1 {
+      color: var(--nav-text-color);
+      margin-bottom: 0.5rem;
+    }
+    p {
+      color: var(--nav-text-color);
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.contact-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  .info-card {
+    background: rgba(138, 95, 43, 0.4);
+    border-radius: 15px;
+    padding: 2rem;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(245, 225, 199, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+    .info-item {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid rgba(245, 225, 199, 0.1);
+      
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .info-icon {
+        font-size: 2rem;
+        color: var(--nav-text-color);
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        color: var(--nav-text-color);
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        color: var(--text-color);
+        margin-bottom: 0;
+      }
+
+      a {
+        color: var(--nav-text-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          bottom: -2px;
+          left: 0;
+          background-color: var(--nav-text-hover-color);
+          transform: scaleX(0);
+          transform-origin: bottom right;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover {
+          color: var(--nav-text-hover-color);
+          
+          &::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+          }
+        }
+      }
+    }
+  }
+}
+
 .contact-form-wrapper {
-  max-width: 600px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 2rem;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #8a5f2b33, #6B422633);
+    border-radius: 20px;
+    z-index: -1;
+  }
 }
 
 .contact-form {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 2rem;
+  background: rgba(138, 95, 43, 0.4);
+  padding: 2.5rem;
   border-radius: 15px;
   backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(245, 225, 199, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 
   label {
     color: var(--nav-text-color);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
   }
 
-  input, textarea {
+  .form-control {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(245, 225, 199, 0.2);
     color: var(--text-color);
+    padding: 0.8rem;
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
 
     &:focus {
       background: rgba(255, 255, 255, 0.1);
       border-color: var(--nav-text-color);
       color: var(--text-color);
-      box-shadow: 0 0 0 0.25rem rgba(134, 81, 30, 0.25);
+      box-shadow: 0 0 0 0.25rem rgba(245, 225, 199, 0.15);
+    }
+
+    &::placeholder {
+      color: rgba(245, 225, 199, 0.5);
+    }
+  }
+
+  textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .btn {
+    background: var(--button-bg-color);
+    color: var(--text-color);
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+
+    &:hover {
+      background: var(--button-hover-color);
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+
+  .text-danger {
+    color: #ff8f8f !important;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+// Add responsive adjustments
+@media (max-width: 991px) {
+  .contact-info {
+    margin-bottom: 2rem;
+    
+    .info-card {
+      .info-item {
+        padding: 1rem;
+      }
     }
   }
 }
 
-// Responsive adjustments
 @media (max-width: 768px) {
-  .team-members {
-    grid-template-columns: 1fr;
+  .contact-content {
+    margin: 0 1rem;
   }
+}
 
-  .contact-form-wrapper {
-    padding: 1rem;
+// Add animation for form submission
+@keyframes submitPulse {
+  0% {
+    transform: scale(1);
   }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.contact-form button[type="submit"]:active {
+  animation: submitPulse 0.3s ease;
 }
 
 // Add these banner-specific styles to your App.scss
@@ -291,19 +468,6 @@ h1, h2, h3, h4, h5, h6 {
     
     &.mission-statement h2 {
       color: var(--text-color);
-    }
-  }
-}
-
-// Update contact page styles
-.contact-container {
-  header {
-    h1 {
-      color: var(--nav-text-color);
-    }
-    p {
-      color: var(--nav-text-color);
-      font-size: 1.2rem;
     }
   }
 }
