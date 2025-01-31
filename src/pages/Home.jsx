@@ -13,7 +13,7 @@ const Home = () => {
 
       <div className="banner-container">
         <img 
-          src="Images/Website-Material/MoviesNoir-Banner.png" 
+          src={import.meta.env.BASE_URL + "Images/Website-Material/MoviesNoir-Banner.png"}
           className="banner-image" 
           alt="Movies Noir Banner"
           loading="eager"
