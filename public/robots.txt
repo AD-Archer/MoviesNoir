@@ -1,0 +1,12 @@
+# robots.txt for MoviesNoir
+
+User-agent: *
+Allow: /
+
+# Disallow crawling of specific directories or files
+Disallow: /private/
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://moviesnoir.vercel.app/sitemap.xml
